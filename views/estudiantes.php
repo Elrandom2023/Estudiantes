@@ -96,7 +96,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-primary" id="guardar-estudiante">Guardar</button>
       </div>
     </div>
   </div>
@@ -116,6 +116,8 @@
   <!-- jQuery-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
+  <!-- SweetAlert2 -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
   <script>
     $(document).ready(function (){
@@ -144,6 +146,26 @@
           }
         });
       }
+
+      function registrarEstudiante(){
+        Swal.fire({
+          icon: 'question',
+          title: 'MATRICULAS',
+          text: '¿Esta seguro de registrar al estudiante?',
+          footer: 'Desarrollado con PHP',
+          confirmButtonText: "Aceptar",
+          confirmButtonColor:"#000000",
+          showCancelButton: true,
+          cancelButtonText: 'Cancelar'
+        }).then((result) => {
+          // Idenficando acción del usuario
+          if(result.isConfirmed){
+            console.log("Guardando datos...");
+          }
+        });
+      }
+
+      $("#guardar-estudiante").click(registrarEstudiante);
 
       // Al cambiar una escuela, se actualizara las carreras
       $("#escuela").change(function (){
