@@ -75,4 +75,4 @@ BEGIN
 	WHERE idescuela = _idescuela;
 END $$
 
-CALL spu_carreras_listar(3)
+CALL spu_carreras_listar(1)
